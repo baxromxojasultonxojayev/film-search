@@ -1,122 +1,73 @@
 
+let SearchSelect = document.querySelector('.choose-year')
+let FormElement = document.querySelector('.film-search')
+let InputForm = document.querySelector('.film-name')
+let ListFilm = document.querySelector('.list-film')
 
-let FormElementFilm = document.querySelector('.film-search')
-let input = document.querySelector('.film-name')
-// let underList = document.querySelector('.list-film')
 
-FormElementFilm.onsubmit = function(event){
+// buttonGenre.onclick = () =>
+
+
+FormElement.addEventListener('submit', function(event){
+  
   event.preventDefault()
+  document.body.classList.add('modal')
+  ListFilm.textContent = ''
+
+  let InputFormValue = InputForm.value;
+  let SearchSelectValue = SearchSelect.value;
+
+  let newMovies = getMovies(InputFormValue, SearchSelectValue);
+
+  randerData(newMovies)
+})
+
+function randerData(arr){
   
-    let wordFilm = document.createElement('li')
-    wordFilm.classList.add('item-film')
-    
-    word = document.createElement('p')
-    word.classList.add('name-film')
-    // word.textContent = input.value
-    wordFilm.appendChild(word)
-    
-    
-    let underlist = document.querySelector('.list-film')
-    function getMovies(nameMovie){
-      underList = []
-      
-      nameMovie = nameMovie.toLowerCase()
-      for(let item of kinolar){
-        word = item.title.toLowerCase()
-        if(word.includes(nameMovie)){
-          underList.push(item)
-        }
-        // nameMovie.textContent = input.value
-        // underList.appendChild(a)
-      }
-      
-      return underList
-      
+  if(arr.length){
+    for(let item of arr){
+      let newElementLi = document.createElement('li')
+      newElementLi.textContent = item.title
+      ListFilm.appendChild(newElementLi)
     }
+  }
+}
 
 
-    console.log(getMovies('Spider'));
-    
-  return underlist.push(getMovies(nameMovie))
+function getMovies(name,year){
+  let filtered = []
+  for(let kino of kinolar){
+    let kinoNameLowerCase = kino.title.toLowerCase().includes(name)
+    if(kinoNameLowerCase && year == kino.year){
+      filtered.push(kino)
+    } 
+  }
+  return filtered;
+}
 
-} 
 
+function relasedYears(){
+  year = []
+  for(let item of kinolar){
+    let indexOfitem = year.indexOf(item.year)
+    if(indexOfitem == -1){
+      year.push(item.year)
+    }
+    // console.log(item.year);
+  }
 
+  year = year.sort(function(a,b){
+    return a - b
+  })
 
+  for(let years of year){
+    // console.log(years);
+    let newOptionELement = document.createElement('option')
+    newOptionELement.setAttribute('option', years)
+    newOptionELement.textContent = years
+    SearchSelect.appendChild(newOptionELement)
+  }
+  // console.log(year);
+}
 
-// let listFilm = document.querySelector('.list-film')
-// let itemFilm = document.querySelector('.item-film')
-// // let formFilmsearch = document.querySelector('.film-search')
-// // let input = document.querySelector('.film-name')
-
-// // function getMovies(newNameMovie){
-// //   newNameMovie = newNameMovie.toLowerCase()
-// //   let a = []
-// //   for(let item of kinolar){
-// //     movieName = item.title.toLowerCase()
-// //     if(movieName.includes(newNameMovie)){
-// //       a.push(item)
-// //     }
-// //   }
-// //   return a
-// // }
-
-// let input = document.querySelector('.film-name')
-// let formFilmsearch = document.querySelector('.film-search')
-
-// formFilmsearch.onsubmit = function(event){
-//   event.preventDefault()
-
-//   let filmitem = document.createElement('li')
-//   filmitem.classList.add('item-film')
-//   // console.log(filmitem);
-
-//   let filmName = document.createElement('p')
-//   filmName.classList.add('name-film')
-//   filmName.textContent = input.value
-//   console.log(filmName);
-
-//   // function getMovies(newNameMovie){
-//   //   newNameMovie = newNameMovie.toLowerCase()
-//   //   let a = []
-//   //   for(let item of kinolar){
-//   //     movieName = item.title.toLowerCase()
-//   //     if(movieName.includes(newNameMovie)){
-//   //       a.push(item)
-//   //     }
-//   //   }
-//   //   return a
-//   // }
-  
-//   // input.addEventListener('keyup', handleKeyUp)
-  
-//   // function handleKeyUp(event){
-//   //   let soz = event.target.value
-//   //   if(soz.length > 2){
-//   //     console.log(getMovies(soz));
-//   //   }
-//   // }
-//   filmitem.appendChild(filmName)
-//   listFilm.appendChild(filmitem)
-// }
-
-// function getMovies(newNameMovie){
-//   newNameMovie = newNameMovie.toLowerCase()
-//   let a = []
-//   for(let item of kinolar){
-//     movieName = item.title.toLowerCase()
-//     if(movieName.includes(newNameMovie)){
-//       a.push(item)
-//     }
-//   }
-//   return a
-// }
-
-// input.addEventListener('keyup', handleKeyUp)
-
-// function handleKeyUp(event){
-//   let soz = event.target.value
-//   if(soz.length > 2){
-//     console.log(getMovies(soz));
-//   }
-// }
+relasedYears()

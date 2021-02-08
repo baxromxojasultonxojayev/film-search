@@ -74,12 +74,10 @@ main .container{
 
 }
 
-.list-film{
-  /* position: relative;
-  top: -100px; */
-  background-color: rgb(12, 12, 11);
-  padding: 50px;
-  z-index: 99999;
-  color: white;
+.search-genre{
+  display: none;
+}
 
+.modal .search-genre{
+  display: block;
 }
