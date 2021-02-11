@@ -24,11 +24,29 @@ function randerData(arr){
     for(let item of arr){
       let newElementLi = document.createElement('li')
       newElementLi.textContent = item.title
+      
         newElementLi.addEventListener('click', event =>{
         infoTitle.textContent = item.title
         infoYear.textContent = item.year
-        infoCast.textContent = item.cast
-        infoGenres.textContent = item.genres
+        
+        infoGenres.textContent = ""
+        item.genres.forEach(genres =>{
+          // infoGenres.textContent = ''
+          console.log(genres);
+          let newGenreElement = document.createElement('li')
+          newGenreElement.textContent = genres
+          infoGenres.appendChild(newGenreElement)
+        })
+
+        // newCas.textContent=""
+        infoCast.textContent = ''
+        item.cast.forEach(cast =>{
+          let newCastElement = document.createElement('li')
+          newCastElement.textContent = cast;
+          infoCast.appendChild(newCastElement)
+        })
+        // infoCast.textContent = item.cast
+        // infoGenres.textContent = item.genres
       })
       ListFilm.appendChild(newElementLi)
     }
