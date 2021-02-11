@@ -89,12 +89,15 @@ main .container{
 
 .list-film{
   background: rgb(187, 67, 67);
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   width: 350px;
   color: white;
   font-weight: bold;
+  overflow-y: auto;
+  height: 150px;
 }
+
 
 .info{
   background: rgb(80, 75, 75);
@@ -103,7 +106,9 @@ main .container{
   color: white;
   width: 300px;
   margin-left: 5px;
-
+  
+  overflow-y: auto;
+  height: 150px;
 }
 
 .film-name{
