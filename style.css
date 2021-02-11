@@ -104,3 +104,30 @@ main .container{
   width: 300px;
   margin-left: 5px;
 }
+
+.film-name{
+  padding: 10px 25px;
+  border-radius: 10px;
+}
+.search{
+  padding: 10px 35px;
+  margin-top: 10px;
+  margin-right: 50px;
+  border-radius: 15px;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  color: red;
+}
+
+.search:hover{
+  background: rgb(128, 97, 97);
+  transition: 1s;
+  color: black;
+}
+
+.choose-year{
+  padding: 10px 15px;
+  border-radius: 10px;
+  color: red;
+}
