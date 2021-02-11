@@ -5685,7 +5685,7 @@ var kinolar = [{
   "genres": ["Thriller"]
 }, {
   "title": "Cake",
-  "year": 2000,
+  "year": 2010,
   "cast": ["Jennifer Aniston", "Sam Worthington", "Anna Kendrick", "Adriana Barraza"],
   "genres": ["Drama"]
 }, {

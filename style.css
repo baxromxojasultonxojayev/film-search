@@ -71,7 +71,7 @@ main .container{
   height: 300px;
   z-index: -10;
   margin-top: 20px;
-
+  border-radius: 10px;
 }
 
 .search-genre{
@@ -80,4 +80,27 @@ main .container{
 
 .modal .search-genre{
   display: block;
+}
+
+.right-side{
+  display: flex;
+  margin-left: 20px;
+}
+
+.list-film{
+  background: rgb(187, 67, 67);
+  padding: 10px;
+  border-radius: 10px;
+  width: 350px;
+  color: white;
+  font-weight: bold;
+}
+
+.info{
+  background: rgb(80, 75, 75);
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  width: 300px;
+  margin-left: 5px;
 }
