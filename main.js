@@ -45,8 +45,6 @@ function randerData(arr){
           newCastElement.textContent = cast;
           infoCast.appendChild(newCastElement)
         })
-        // infoCast.textContent = item.cast
-        // infoGenres.textContent = item.genres
       })
       ListFilm.appendChild(newElementLi)
     }
